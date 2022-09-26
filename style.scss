@@ -1,0 +1,157 @@
+@import "variable";
+
+* {
+  box-sizing: border-box;
+  margin: 0%;
+  padding: 0%;
+}
+
+body {
+  background-color: $color-dark;
+  font-size: 16px;
+}
+
+$sizes: 1, 2, 10;
+@each $size in $sizes {
+  .m-#{$size} {
+    margin: $size + rem;
+  }
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 2.3rem;
+  background-color: $color-primary;
+  border-bottom-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+
+  .movie {
+    font-weight: bolder;
+
+    &-item {
+      color: $color-secondary;
+    }
+  }
+
+  .movie:hover {
+    -webkit-transform: scale(1.2);
+    -ms-transform: scale(1.2);
+    -moz-transform: scale(1.2);
+    transform: scale(1.2);
+  }
+
+  .logo {
+    &-image {
+      width: $width-small;
+    }
+  }
+
+  .nav-list {
+    list-style-type: none;
+    display: flex;
+    > :first-child {
+      background-color: $color-secondary;
+      border-radius: 0.4rem;
+      .nav-list-item-link {
+        color: $color-light;
+        &:hover {
+          color: $color-black;
+        }
+      }
+    }
+    > :nth-child(2) {
+      .nav-list-item-link {
+        color: $color-dark;
+      }
+    }
+    > :last-child {
+      .nav-list-item-link {
+        color: currentColor;
+        cursor: not-allowed;
+        opacity: 0.5;
+        text-decoration: none;
+      }
+    }
+    &-item {
+      margin: 0.2rem $size;
+      text-align: center;
+      font-size: 0.6rem;
+      padding: 0.3rem;
+      &-link {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+.cards-container {
+  display: flex;
+  .card-container {
+    background-color: $color-light;
+    width: 10rem;
+    border-radius: $size;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    .card-image {
+      width: $width;
+      height: 7rem;
+      border-top-left-radius: $size;
+      border-top-right-radius: $size;
+    }
+    .card-text {
+      font-size: $size;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      &-kind {
+        width: $width-card;
+        height: 1rem;
+        background-color: #757575;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        border-radius: 3rem;
+        margin: $size 0rem;
+      }
+      &-title {
+        width: $width-card;
+        font-size: 0.6rem;
+        margin-bottom: 0.2rem;
+      }
+      &-explain {
+        width: $width-card;
+        font-size: $size;
+      }
+    }
+    .card-profile-text {
+      display: flex;
+      font-size: 0.3rem;
+      margin: $size;
+      margin-top: 1rem;
+
+      &-image {
+        &-item {
+          width: 1.5rem;
+          height: 1.5rem;
+          border-radius: 50%;
+        }
+      }
+      &-right {
+        width: $width-small;
+        margin-left: $size;
+        padding-top: 0.1rem;
+        &-title {
+          font-weight: bolder;
+        }
+      }
+    }
+  }
+  .card-container:hover {
+    box-shadow: 0rem 0rem 1.5rem 0.4rem $shadow;
+  }
+}
